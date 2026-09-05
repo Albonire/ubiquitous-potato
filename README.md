@@ -1,7 +1,7 @@
 # Cuando la escuela rural cambia
 
 Recurso educativo digital para el Módulo 1 *Cultura y cambio organizacional y educativo*
-de la Maestría en Educación de la Universidad Santo Tomás.
+de la Maestría en Innovación Educativa de la Universidad Santo Tomás.
 
 **Autoras:** Ingrid Yuliana González Flores · Luz Marina Castillo
 

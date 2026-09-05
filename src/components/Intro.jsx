@@ -15,7 +15,7 @@ export default function Intro({ onStart }) {
   return (
     <section className="flex min-h-screen flex-col justify-between bg-night px-6 py-12 sm:px-10 sm:py-16">
       <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-white/55">
-        Universidad Santo Tomás · Maestría en Educación
+        Universidad Santo Tomás · Maestría en Innovación Educativa
       </p>
 
       <div className="mx-auto w-full max-w-2xl py-12">
