@@ -117,36 +117,26 @@ export const rubricLevels = [
   {
     score: 4,
     level: "Nivel Superior Alcanzado",
-    badge: "Excelente Dominio Conceptual",
-    color: "text-emerald-700 bg-emerald-50 border-emerald-300",
     description: "Comprende con excelencia la articulación entre cultura y cambio organizacional, identificando los supuestos de Schein, la cultura clan de Cameron & Quinn y la dinámica del campo de fuerzas de Lewin con aplicación directa a la escuela rural."
   },
   {
     score: 3,
     level: "Nivel Alto Alcanzado",
-    badge: "Buen Desempeño",
-    color: "text-blue-700 bg-blue-50 border-blue-300",
     description: "Comprende la mayoría de los conceptos clave de cultura y cambio organizacional. Se sugiere repasar la distinción entre las fases de transición y recongelamiento para una mayor precisión teórica."
   },
   {
     score: 2,
     level: "Nivel Básico",
-    badge: "En Proceso de Afianzamiento",
-    color: "text-amber-700 bg-amber-50 border-amber-300",
     description: "Identifica algunos conceptos fundamentales, pero requiere profundizar en la teoría de Kurt Lewin y en los niveles culturales de Edgar Schein para afianzar el análisis pedagógico."
   },
   {
     score: 1,
     level: "Nivel Inicial / Bajo",
-    badge: "Requiere Refuerzo",
-    color: "text-rose-700 bg-rose-50 border-rose-300",
-    description: "Presenta dificultades para conectar la teoría con las escenas del cómic. Te invitamos a revisar los fundamentos teóricos interactivos de cada tira y volver a intentarlo."
+    description: "Presenta dificultades para conectar la teoría con las escenas del cómic. Te invitamos a recorrer de nuevo la secuencia y volver a intentarlo."
   },
   {
     score: 0,
     level: "Sin Respuestas Acreditadas",
-    badge: "Por Iniciar",
-    color: "text-slate-600 bg-slate-100 border-slate-300",
     description: "Responde el cuestionario seleccionando una de las alternativas para cada pregunta para conocer tu nivel de apropiación conceptual."
   }
 ];

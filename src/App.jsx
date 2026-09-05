@@ -1,25 +1,16 @@
-import React from 'react';
-import Header from './components/Header';
-import ComicViewer from './components/ComicViewer';
-import DUAQuiz from './components/DUAQuiz';
-import Footer from './components/Footer';
+import React, { useRef } from 'react';
+import Intro from './components/Intro';
+import ComicSequence from './components/ComicSequence';
+import Quiz from './components/Quiz';
 
 export default function App() {
+  const sequenceRef = useRef(null);
+
   return (
-    <div className="min-h-screen bg-studio-off-white text-ink flex flex-col justify-between selection:bg-lavender-mist selection:text-deep-plum">
-      <main className="flex-grow">
-        {/* 1. Cabecera Institucional y Fin Pedagógico USTA */}
-        <Header />
-
-        {/* 2. Visor Interactivo de las 5 Tiras Cómicas con DUA y Fundamento Teórico */}
-        <ComicViewer />
-
-        {/* 3. Cuestionario de Evaluación Formativa con Feedback Inmediato */}
-        <DUAQuiz />
-      </main>
-
-      {/* 4. Pie de Página Académico y Citación Formal APA 7 */}
-      <Footer />
-    </div>
+    <main className="bg-night text-white">
+      <Intro onStart={() => sequenceRef.current?.goToBeat(0)} />
+      <ComicSequence ref={sequenceRef} />
+      <Quiz />
+    </main>
   );
 }

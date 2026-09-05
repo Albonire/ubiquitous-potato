@@ -1,78 +1,66 @@
-# Cuando la escuela rural cambia: una historia sobre cultura y transformación
+# Cuando la escuela rural cambia
 
-> **Recurso Educativo Digital e Interactivo (DUA)**  
-> **Universidad Santo Tomás (USTA) — Colombia**  
-> Maestría en Educación · Módulo 1: *Cultura y cambio organizacional y educativo*  
-> **Autoras:** Ingrid Yuliana González Flores & Luz Marina Castillo
+Recurso educativo digital para el Módulo 1 *Cultura y cambio organizacional y educativo*
+de la Maestría en Educación de la Universidad Santo Tomás.
 
----
+**Autoras:** Ingrid Yuliana González Flores · Luz Marina Castillo
 
-## 📖 Descripción del Proyecto
+## Qué es
 
-Este recurso interactivo analiza la articulación entre **cultura organizacional** y **gestión del cambio** en una institución educativa rural multigrado pública, reconociendo las fuerzas impulsoras, las resistencias humanas y las estrategias de liderazgo transformacional a partir de las teorías de **Edgar Schein (1985)**, **Kurt Lewin (1951)**, **Cameron & Quinn (1999)** y **Pérez Uribe (2018)**.
+Una sola secuencia continua, sin secciones ni menús:
 
-El recurso fue desarrollado bajo principios de **Diseño Universal para el Aprendizaje (DUA)** y el sistema de diseño suizo **Jitter** (minimalista, de alta legibilidad y libre de clichés visuales).
+1. **Portada.** Objetivo pedagógico, autoras, referencias en APA 7 y la instrucción de uso.
+2. **Historia.** Las cinco tiras cómicas recorridas viñeta por viñeta (28 en total). La
+   cámara enfoca cada viñeta y el resto de la tira queda atenuado alrededor. Se avanza
+   deslizando, haciendo clic en cualquier punto o con las flechas del teclado.
+3. **Cuestionario.** Cuatro preguntas con retroalimentación conceptual inmediata y el
+   nivel de la rúbrica al terminar.
 
----
+La narrativa recorre la cultura clan de la escuela rural, el choque con la dotación
+tecnológica, el descongelamiento mediante la co-enseñanza, la experimentación y el
+recongelamiento del cambio, a partir de Schein (1985), Lewin (1951), Cameron y Quinn
+(1999) y Pérez Uribe (2018).
 
-## 🚀 Características Principales
+## Cómo funciona la secuencia
 
-1. **Visor Interactivo del Cómic (5 Actos):**
-   - Navegación táctil e intuitiva entre los 5 actos de la narrativa gráfica.
-   - **Modo Presentación Cinemática 3D (inspirado en impress.js y reveal.js):** Proyección espacial con cámara GPU (`perspective: 1200px`) que viaja viñeta por viñeta enfocando a los personajes en 3D mientras hablan.
-   - **Efecto RevealZoom:** Acercamiento elástico al hacer clic en cualquier detalle o personaje del cómic.
-   - **Accesibilidad DUA:** Lectura por voz nativa (*Web Speech API*) con modulación acústica diferenciada por personaje (*Profesor Jorge*, *Docente Laura* y *Rectora Carmen*).
-   - **Panel Teórico Deslizante:** Desglose conceptual académico de cada acto accesible mediante cajón lateral (*slide-over drawer*).
+`src/data/comicData.js` describe cada tira como una rejilla de viñetas (`cols` x `rows`)
+y ubica cada viñeta por el centro de su celda en porcentaje sobre la imagen. Las viñetas
+sin diálogo se marcan `silent`.
 
-2. **Evaluación Formativa DUA (Cuestionario Interactivo):**
-   - Formato por pasos (*Stepper P1 a P4*) o vista continua.
-   - Retroalimentación formativa inmediata (verde/rojo) con fundamentación teórica y citación de autores.
-   - Lectura por voz accesible de cada consigna y alternativas.
-   - Contador de puntaje en tiempo real, rúbrica oficial USTA y animación accesible de confeti.
+`src/components/ComicSequence.jsx` usa el scroll como única fuente de verdad: la sección
+mide un viewport de alto por viñeta, el escenario queda fijo con `position: sticky` y el
+tiempo activo se deriva de la posición. Clic, teclado y el botón de la portada no mueven
+un índice propio, sino que desplazan el scroll, así que las tres formas de avanzar nunca
+se desincronizan.
 
-3. **Colofón Académico y Citación APA 7:**
-   - Referencias bibliográficas completas y botón de copiado de citación en formato APA 7.
+La escala de la cámara se calcula desde el viewport, no está fija: la celda enfocada
+ocupa el 92 % del ancho o del alto disponible, de modo que la viñeta se lee igual en
+escritorio y en un teléfono vertical. Con `prefers-reduced-motion` las transiciones se
+desactivan.
 
----
+## Accesibilidad
 
-## 🛠️ Stack Tecnológico
+- Contraste verificado sobre el fondo oscuro (AA para texto normal).
+- El diálogo de cada viñeta está disponible para lectores de pantalla en la región
+  `aria-live`, además de estar dibujado en el globo.
+- Navegación completa por teclado (flechas, espacio, tabulación) y `alt` descriptivo por
+  tira.
 
-- **Framework:** React 19 + Vite 6
-- **Estilos:** Tailwind CSS v3 (Jitter Design System tokens)
-- **Iconografía:** Lucide React
-- **Accesibilidad:** Web Speech API nativa (DUA)
-- **Efectos:** Canvas Confetti + CSS3 3D Hardware Accelerated Transforms
-- **Despliegue:** Optimizado para Vercel (`vercel.json` incluido)
-
----
-
-## 💻 Instalación y Uso Local
+## Desarrollo
 
 ```bash
-# 1. Clonar el repositorio
-git clone https://github.com/Albonire/ubiquitous-potato.git
-cd ubiquitous-potato
-
-# 2. Instalar dependencias
 npm install
-
-# 3. Iniciar servidor de desarrollo
-npm run dev
-
-# 4. Compilar para producción
-npm run build
-
-# 5. Previsualizar bundle de producción
-npm run preview
+npm run dev      # servidor de desarrollo
+npm run build    # bundle de producción en dist/
+npm run preview  # previsualizar el bundle
 ```
 
----
+Stack: React 19, Vite 6, Tailwind CSS 3. Despliegue en Vercel (`vercel.json` incluido).
 
-## ⌨️ Atajos de Teclado
+## Atajos
 
-- `P`: Activar / salir del **Modo Presentación Cinemática 3D**
-- `Espacio` o `→`: Avanzar a la siguiente viñeta / diapositiva
-- `←`: Retroceder a la viñeta anterior
-- `Z`: Alternar entre vista panorámica y viñeta activa
-- `Clic en imagen`: Activar **RevealZoom** táctil hacia las coordenadas del cursor
-- `Escape`: Restablecer zoom o cerrar modales / presentación
+| Tecla | Acción |
+|---|---|
+| `→` / `Espacio` | Siguiente viñeta |
+| `←` | Viñeta anterior |
+| Clic | Siguiente viñeta |
